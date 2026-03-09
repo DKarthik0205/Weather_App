@@ -5,6 +5,7 @@ const fs = require("fs");
 
 const app = express();
 const port = process.env.PORT || 3000;
+const host = process.env.HOST || "0.0.0.0";
 
 const publicPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -141,4 +142,4 @@ app.get("/admin", (req, res) => {
 app.get("/admin/download", (req, res) => res.download(consolidatedPath, "consolidated-work-allocation-report.csv"));
 app.get("*", (req, res) => res.status(404).render("404", { title: "Page not found" }));
 
-app.listen(port, () => console.log(`Server is listening on port ${port}`));
+app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
