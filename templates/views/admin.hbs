@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+  </head>
+  <body>
+    <div class="main-content">
+      {{>header}}
+      <section class="card">
+        <h2>Submission Overview</h2>
+        <p>Total uploaded files: <strong>{{totalFiles}}</strong> | Total employee records: <strong>{{totalEmployees}}</strong></p>
+        <form method="GET" action="/admin" class="filters">
+          <input name="search" placeholder="Search by employee" value="{{search}}" />
+          <input name="project" placeholder="Search by project" value="{{project}}" />
+          <button type="submit">Filter</button>
+          <a class="btn" href="/admin/download">Download Consolidated Report</a>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th><th>Monthly Capacity</th><th>Projects</th><th>Total Planned Hours</th><th>Total Billable Hours</th><th>Leakage Hours</th><th>Leakage %</th><th>Reason</th><th>Submitted At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each submissions}}
+              <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.monthlyCapacity}}</td>
+                <td>{{this.projects}}</td>
+                <td>{{this.totalPlanned}}</td>
+                <td>{{this.totalBillable}}</td>
+                <td>{{this.leakageHours}}</td>
+                <td>{{this.leakagePercentage}}</td>
+                <td>{{this.reason}}</td>
+                <td>{{this.submittedAt}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>

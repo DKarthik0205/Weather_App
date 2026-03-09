@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{{title}}</title>
-        <link rel="stylesheet" href="css/styles.css"/> <!-- static path for public folder is already set in app.js -->
-    </head>
-    <body>
-        <div class="main-content">
-            {{>header}}
-            <article class="widget">
-                <form class="weatherLocation"><input class="input-field" placeholder="Enter city name" type = "text"/><button class="search-button">Seach</button>
-                </form>
-                <div class="icon-and-weatherInfo">
-                    <div class="weatherIcon"><i></i></div>
-                    <div class="weatherInfo">
-                         <div class="temperature"><span></span></div>
-                        <div class="weatherCondition"></div> 
-                    </div>
-                </div>
-                <div class="place"></div>
-                <div class="date"></div>
-            </article>
-        </div>
-        <script src="js/app.js"></script> <!-- absolute path -->
-    </body>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+  </head>
+  <body>
+    <div class="main-content">
+      {{>header}}
+      <section class="card">
+        <h2>Centralized Monthly Work Allocation</h2>
+        <p>Download the Excel-compatible template, fill in employee work allocation details, and submit for automatic consolidation.</p>
+        <ul>
+          <li>Template validation for required headers.</li>
+          <li>Mandatory checks for Name and Monthly Capacity.</li>
+          <li>Automatic consolidated master report generation.</li>
+          <li>Admin search/filter by employee and project.</li>
+        </ul>
+      </section>
+    </div>
+  </body>
 </html>
